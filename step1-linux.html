@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>第一步 for Linux</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet" />
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet" />
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <!-- <link href="assets/css/demo.css" rel="stylesheet" /> -->
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="sidebar" data-color="white" data-image="assets/img/sidebar.jpg">
+
+            <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+    -->
+
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="#" class="simple-text">
+                        《壹·诗》codelab
+                    </a>
+                </div>
+
+                <ul class="nav">
+                    <li class="active">
+                        <a href="step1.html">
+                            <i>1</i>
+                            <p>Flutter安装</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="step2.html">
+                            <i>2</i>
+                            <p>配置编辑器</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="step3.html">
+                            <i>3</i>
+                            <p>获取《壹·诗》app源码</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="step4.html">
+                            <i>4</i>
+                            <p>运行《壹·诗》app</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="step5.html">
+                            <i>5</i>
+                            <p>运行效果展示</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="content">
+                                    <h2 id="使用镜像">使用镜像</h2>
+
+                                    <p>由于在国内访问Flutter有时可能会受到限制，Flutter官方为中国开发者搭建了临时镜像，大家可以将如下环境变量加入到用户环境变量中：</p>
+
+                                    <div class="highlighter-rouge">
+                                        <div class="highlight">
+                                            <pre class="highlight"><code>export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+</code></pre>
+                                        </div>
+                                    </div>
+
+                                    <p><strong>注意：</strong> 此镜像为临时镜像，并不能保证一直可用，读者可以参考详情请参考 <a
+                                            href="https://github.com/flutter/flutter/wiki/Using-Flutter-in-China">Using
+                                            Flutter in China</a> 以获得有关镜像服务器的最新动态。</p>
+
+                                    <h2 id="系统要求">系统要求</h2>
+
+                                    <p>要安装并运行Flutter，您的开发环境必须满足以下最低要求:</p>
+
+                                    <ul>
+                                        <li><strong>操作系统</strong>: Linux (64-bit)</li>
+                                        <li><strong>磁盘空间</strong>: 600 MB (不包括Android Studio的磁盘空间).</li>
+                                        <li><strong>工具</strong>: Flutter 依赖下面这些命令行工具.
+                                            <ul>
+                                                <li><code class="highlighter-rouge">bash</code>, <code
+                                                        class="highlighter-rouge">mkdir</code>, <code
+                                                        class="highlighter-rouge">rm</code>, <code
+                                                        class="highlighter-rouge">git</code>, <code
+                                                        class="highlighter-rouge">curl</code>, <code
+                                                        class="highlighter-rouge">unzip</code>, <code
+                                                        class="highlighter-rouge">which</code></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+                                    <h2 id="获取flutter-sdk">获取Flutter SDK</h2>
+
+                                    <ol>
+                                        <li>
+                                            <p>去flutter官网下载其最新可用的安装包，<a
+                                                    href="https://flutter.io/sdk-archive/#macos">转到下载页</a> 。</p>
+
+                                            <p>注意，Flutter的渠道版本会不停变动，请以Flutter官网为准。另外，在中国大陆地区，要想正常获取安装包列表或下载安装包，可能需要翻墙，读者也可以去Flutter
+                                                github项目下去下载安装包，<a
+                                                    href="https://github.com/flutter/flutter/releases">转到下载页</a> 。</p>
+                                        </li>
+                                        <li>
+                                            <p>解压安装包到你想安装的目录，如：</p>
+
+                                            <div class="language-shell highlighter-rouge">
+                                                <div class="highlight">
+                                                    <pre class="highlight"><code><span class="nb">cd</span> ~/development
+unzip ~/Downloads/flutter_macos_v0.5.1-beta.zip
+</code></pre>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <p>添加<code class="highlighter-rouge">flutter</code>相关工具到path中：</p>
+
+                                            <div class="language-shell highlighter-rouge">
+                                                <div class="highlight">
+                                                    <pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/flutter/bin:<span class="nv">$PATH</span>
+</code></pre>
+                                                </div>
+                                            </div>
+
+                                            <p>此代码只能暂时针对当前命令行窗口设置PATH环境变量，要想永久将Flutter添加到PATH中请参考下面<strong>更新环境变量</strong>
+                                                部分。</p>
+                                        </li>
+                                    </ol>
+
+                                    <div class="alert alert-info" style="margin-top:-5px">
+                                        <p><strong>注意：</strong> 由于一些<code
+                                                class="highlighter-rouge">flutter</code>命令需要联网获取数据，如果您是在国内访问，由于众所周知的原因，直接访问很可能不会成功。
+                                            上面的<code class="highlighter-rouge">PUB_HOSTED_URL</code>和<code
+                                                class="highlighter-rouge">FLUTTER_STORAGE_BASE_URL</code>是google为国内开发者搭建的临时镜像。详情请参考
+                                            <a href="https://github.com/flutter/flutter/wiki/Using-Flutter-in-China">Using
+                                                Flutter in China</a>
+                                        </p>
+                                    </div>
+
+                                    <h3 id="运行-flutter-doctor">运行 flutter doctor</h3>
+
+                                    <p>运行以下命令查看是否需要安装其它依赖项来完成安装：</p>
+
+                                    <pre><code class="language-commandline">flutter doctor
+</code></pre>
+
+                                    <p>该命令检查您的环境并在终端窗口中显示报告。Dart SDK已经在捆绑在Flutter里了，没有必要单独安装Dart。
+                                        仔细检查命令行输出以获取可能需要安装的其他软件或进一步需要执行的任务（以粗体显示）</p>
+
+                                    <p>例如:</p>
+                                    <pre>
+[-] Android toolchain - develop for Android devices
+    • Android SDK at /Users/obiwan/Library/Android/sdk
+    <strong>✗ Android SDK is missing command line tools; download from https://goo.gl/XxQghQ</strong>
+    • Try re-installing or updating your Android SDK,
+      visit https://flutter.io/setup/#android-setup for detailed instructions.
+</pre>
+
+                                    <p>一般的错误会是xcode或Android Studio版本太低、或者没有<code
+                                            class="highlighter-rouge">ANDROID_HOME</code>环境变量等，请按照提示解决。下面贴一个笔者本机(mac)的环境变量配置，您可以对比修正：
+                                    </p>
+                                    <pre><code class="language-commandline">  export PATH=/Users/用户名/Documents/flutter/flutter/bin:$PATH
+  export ANDROID_HOME="/Users/用户名/Documents/android_sdk" //android sdk目录，替换为你自己的即可
+  export PATH=${PATH}:${ANDROID_HOME}/tools
+  export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+  export PUB_HOSTED_URL=https://pub.flutter-io.cn
+  export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+</code></pre>
+
+                                    <p>第一次运行一个flutter命令（如flutter doctor）时，它会下载它自己的依赖项并自行编译。以后再运行就会快得多。</p>
+
+                                    <p>一旦你安装了任何缺失的依赖，再次运行<code
+                                            class="highlighter-rouge">flutter doctor</code>命令来验证你是否已经正确地设置了。</p>
+
+                                    <p class="alert-warning">该flutter工具使用Google Analytics匿名报告功能使用情况统计信息和基本崩溃报告。
+                                        这些数据用于帮助改进Flutter工具。Analytics不是一运行或在运行涉及<code
+                                            class="highlighter-rouge">flutter config</code>的任何命令时就发送，
+                                        因此您可以在发送任何数据之前退出分析。要禁用报告，请执行<code
+                                            class="highlighter-rouge">flutter config --no-analytics</code>并显示当前设置，然后执行<code
+                                            class="highlighter-rouge">flutter config</code>。
+                                        请参阅<a href="https://www.google.com/intl/en/policies/privacy/">Google的隐私政策</a>。
+                                    </p>
+
+                                    <h3 id="更新环境变量">更新环境变量</h3>
+
+                                    <p>您在命令行只能更新当前会话的PATH变量。但是，您可能需要的是永久更新此变量，以便您可以运行<code
+                                            class="highlighter-rouge">flutter</code>命令在任何终端会话中。</p>
+
+                                    <p>对于所有终端会话永久修改此变量的步骤是和特定计算机系统相关的。通常，您会在打开新窗口时将设置环境变量的命令添加到执行的文件中。例如</p>
+
+                                    <ol>
+                                        <li>确定您Flutter SDK的目录，您将在步骤3中用到。</li>
+                                        <li>打开(或创建) <code class="highlighter-rouge">$HOME/.bash_profile</code>.
+                                            文件路径和文件名可能在您的机器上不同.</li>
+                                        <li>添加以下行并更改<code
+                                                class="highlighter-rouge">[PATH_TO_FLUTTER_GIT_DIRECTORY]</code>为克隆Flutter的git
+                                            repo的路径:</li>
+                                    </ol>
+
+                                    <pre><code class="language-commandline">export PUB_HOSTED_URL=https://pub.flutter-io.cn //国内用户需要设置
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn //国内用户需要设置
+export PATH=PATH_TO_FLUTTER_GIT_DIRECTORY/flutter/bin:$PATH
+</code></pre>
+
+                                    <p>注意：<code class="highlighter-rouge">PATH_TO_FLUTTER_GIT_DIRECTORY</code>
+                                        为你flutter的路径，比如“~/document/code”</p>
+
+                                    <pre><code class="language-commandline"> export PATH=~/document/code/flutter/bin:$PATH
+</code></pre>
+
+                                    <ol>
+                                        <li>运行 <code class="highlighter-rouge">source $HOME/.bash_profile</code>
+                                            刷新当前终端窗口.</li>
+                                    </ol>
+
+                                    <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i>
+                                        <b>注意:</b> 如果你使用的是zsh，终端启动时
+                                        <code class="highlighter-rouge">~/.bash_profile</code> 将不会被加载，解决办法就是修改 <code
+                                            class="highlighter-rouge">~/.zshrc</code> ，在其中添加：source ~/.bash_profile
+                                    </div>
+
+                                    <p>5.通过运行<code class="highlighter-rouge">flutter/bin</code>命令验证目录是否在已经在PATH中:</p>
+
+                                    <pre><code class="language-commandline">echo $PATH
+</code></pre>
+
+                                    <p>更多详细信息，请参阅<a
+                                            href="https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path">this
+                                            StackExchange question</a>.</p>
+
+                                    <h2 id="编辑器设置">编辑器设置</h2>
+
+                                    <p>使用 <code class="highlighter-rouge">flutter</code>
+                                        命令行工具，您可以使用任何编辑器来开发Flutter应用程序。输入<code
+                                            class="highlighter-rouge">flutter help</code>在提示符下查看可用的工具。</p>
+
+                                    <h2 id="android设置">Android设置</h2>
+
+                                    <h3 id="安装android-studio">安装Android Studio</h3>
+
+                                    <p>要为Android开发Flutter应用，您可以使用Mac，Windows或Linux（64位）机器.</p>
+
+                                    <p>Flutter需要安装和配置Android Studio:</p>
+
+                                    <ol>
+                                        <li>
+                                            <p>下载并安装 <a href="https://developer.android.com/studio/index.html">Android
+                                                    Studio</a>.</p>
+                                        </li>
+                                        <li>
+                                            <p>启动Android Studio，然后执行“Android Studio安装向导”。这将安装最新的Android SDK，Android
+                                                SDK平台工具和Android SDK构建工具，这是Flutter为Android开发时所必需的</p>
+                                        </li>
+                                    </ol>
+
+                                    <h3 id="设置您的android设备">设置您的Android设备</h3>
+
+                                    <p>要准备在Android设备上运行并测试您的Flutter应用，您需要安装Android 4.1（API level 16）或更高版本的Android设备.</p>
+
+                                    <ol>
+                                        <li>在您的设备上启用 <strong>开发人员选项</strong> 和 <strong>USB调试</strong> 。详细说明可在<a
+                                                href="https://developer.android.com/studio/debug/dev-options.html">Android文档</a>中找到。
+                                        </li>
+                                        <li>使用USB将手机插入电脑。如果您的设备出现提示，请授权您的计算机访问您的设备。</li>
+                                        <li>在终端中，运行 <code class="highlighter-rouge">flutter devices</code>
+                                            命令以验证Flutter识别您连接的Android设备。</li>
+                                        <li>运行启动您的应用程序 <code class="highlighter-rouge">flutter run</code>。</li>
+                                    </ol>
+
+                                    <p>默认情况下，Flutter使用的Android SDK版本是基于你的 <code class="highlighter-rouge">adb</code>
+                                        工具版本。
+                                        如果您想让Flutter使用不同版本的Android SDK，则必须将该 <code
+                                            class="highlighter-rouge">ANDROID_HOME</code> 环境变量设置为SDK安装目录。</p>
+
+                                    <h3 id="设置android模拟器">设置Android模拟器</h3>
+
+                                    <p>要准备在Android模拟器上运行并测试您的Flutter应用，请按照以下步骤操作：</p>
+
+                                    <ol>
+                                        <li>在您的机器上启用 <a
+                                                href="https://developer.android.com/studio/run/emulator-acceleration.html">VM
+                                                acceleration</a> .</li>
+                                        <li>启动 <strong>Android Studio&gt;Tools&gt;Android&gt;AVD Manager</strong> 并选择
+                                            <strong>Create Virtual Device</strong>.
+                                        </li>
+                                        <li>选择一个设备并选择 <strong>Next</strong>。</li>
+                                        <li>为要模拟的Android版本选择一个或多个系统映像，然后选择 <strong>Next</strong>. 建议使用 <em>x86</em> 或
+                                            <em>x86_64</em> image .
+                                        </li>
+                                        <li>在 Emulated Performance下, 选择 <strong>Hardware - GLES 2.0</strong> 以启用
+                                            <a
+                                                href="https://developer.android.com/studio/run/emulator-acceleration.html">硬件加速</a>.
+                                        </li>
+                                        <li>
+                                            <p>验证AVD配置是否正确，然后选择 <strong>Finish</strong>。</p>
+
+                                            <p>有关上述步骤的详细信息，请参阅 <a
+                                                    href="https://developer.android.com/studio/run/managing-avds.html">Managing
+                                                    AVDs</a>.</p>
+                                        </li>
+                                        <li>在 Android Virtual Device Manager中, 点击工具栏的
+                                            <strong>Run</strong>。模拟器启动并显示所选操作系统版本或设备的启动画面.
+                                        </li>
+                                        <li>运行 <code class="highlighter-rouge">flutter run</code> 启动您的设备. 连接的设备名是 <code
+                                                class="highlighter-rouge">Android SDK built for &lt;platform&gt;</code>,其中
+                                            <em>platform</em> 是芯片系列, 如 x86.
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<!--   Core JS Files   -->
+<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  Checkbox, Radio & Switch Plugins -->
+<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
+
+<!--  Charts Plugin -->
+<script src="assets/js/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="assets/js/bootstrap-notify.js"></script>
+
+<!--  Google Maps Plugin    -->
+<!---<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>--->
+
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="assets/js/light-bootstrap-dashboard.js"></script>
+
+<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+<script src="assets/js/demo.js"></script>
+
+</html>
